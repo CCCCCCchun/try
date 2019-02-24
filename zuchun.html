@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>优设网 - UISDC - 设计师交流学习平台 - 看设计文章，学软件教程，找灵感素材，尽在优设网！</title>
+	<link rel="stylesheet" type="text/css" href="css1/2.css">
+</head>
+<
+<body>
+	<div class="top">
+		<a href="https://www.uisdc.com/">
+		<div class="youshebox">
+			<img class="youshe"src="https://image.uisdc.com/wp-content/uploads/2018/02/uisdc-logo.png">
+		</div>
+		    <span class="a1">首页</span>
+		    <div class="smallorange"></div>
+		</a>
+
+		<a href="https://www.uisdc.com/archives">
+		<span class="a2">文章</span></a>
+		<div class="all">
+		    <div class="daohang">
+		    	<a href="https://hao.uisdc.com/">
+			    <button class="a3" type="button">网址导航</button></a>
+			</div>
+			<div class="all1">
+				<a href="https://hao.uisdc.com/"><div class="one">设计导航</div></a>
+				<a href="https://hao.uisdc.com/book/"><div class="two">图书导航</div></a>
+				<a href="https://hao.uisdc.com/shop/"><div class="two">电商导航</div></a>
+				<a href="https://color.uisdc.com/"><div class="two">色彩导航</div></a>
+			</div>
+		</div>
+		<a href="https://www.uisdc.com/hunters"><span class="a4">细节猎人</span></a>
+		<a href="https://www.uisdc.com/news"><span class="a5">优设读报</span></a>
+		<a href="https://xue.uisdc.com/"><span class="a6">培训课程</span></a>
+		<a href="https://uiiiuiii.com/"><span class="a7">UiiiUiii教程</span></a>
+		<a href="https://www.gaoding.com/?hmsr=uisdc-dhl-home-home-xl-bdqd"><span class="a8">免费素材</span></a>
+		<a href="https://www.uisdc.com/about"><span class="a9">关于我们</span></a>
+		<div class="yuan">
+			<span title="点击登录" class="denglu">
+                <img class="xiaoji"src="https://image.uisdc.com/wp-content/uploads/2018/06/avatar-uisdc-chat.png">
+            </span>
+        </div>
+	</div>
+	<div class="body">
+		<div id="container">
+		<div id="list" style="left:-600px;">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-bbanner-draw190219.jpg"alt="1">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-bbanner-draw190219.jpg"alt="1">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/20190210-sjgb-bbanner.jpg"alt="2">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-bbanner-color0131.jpg"alt="3">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-rb-0213c4d.jpg"alt="4">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-pr-rb0213.jpg"alt="5">
+			<img src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-pr-rb0213.jpg"alt="5">
+		</div>
+		<div id="buttons">
+			<span index="1"class="on"></span>
+			<span index="2"></span>
+			<span index="3"></span>
+			<span index="4"></span>
+			<span index="5"></span>
+	</div>
+	<a href="#"id="prev"class="arrow">&lt;</a>
+	<a href="#"id="next"class="arrow">&gt;</a>
+</div>
+
+
+<script type="text/javascript">
+	// function loadXMLDoc(){
+ //            var  xmlhttp;
+                        
+ //            if(window.XMLHttpRequest){
+ //                xmlhttp=new XMLHttpRequest();
+ //            }else{
+ //                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+ //            }
+ //            var xmlhttp=new XMLHttpRequest();
+            
+
+ //            xmlhttp.onreadystatechange=function(){
+ //                if(xmlhttp.readyState==4 && xmlhttp.status==200){
+ //                	var data=JSON.parse(xmlhttp.responseText);
+
+                  
+ //                    document.getElementById("list").innerHTML="<img src='"+data.img1+"'>"+"<img src='"+data.img2+"'>"+"<img src='"+data.img3+"'>"+"<img src='"+data.img4+"'>"+"<img src='"+data.img5+"'>";
+        
+ //                }
+ //            }
+ //            var url="https://www.easy-mock.com/mock/5c721facd925e818cda03c5a/example/";
+ //            xmlhttp.open("GET",url,true);
+ //            xmlhttp.send();
+            
+ //        }
+
+
+
+
+
+	window.onload=function(){
+		var list=document.getElementById('list');
+		var prev=document.getElementById('prev');
+		var next=document.getElementById('next');
+		function animate(offset){
+			var newleft=parseInt(list.style.left)+offset;
+			if(newleft<-3000){
+				list.style.left=-600+'px';
+			}else if(newleft>-600){
+				list.style.left=-3000+'px';
+			}else{
+				list.style.left=newleft+'px';
+			}
+		}
+		prev.onclick=function(){
+			animate(600);
+		}
+		next.onclick=function(){
+			animate(-600);
+		}
+		var timer;
+		function play(){
+			timer=setInterval(function(){
+				next.onclick()
+			},1500)
+		}
+		play()
+		var container=document.getElementById('container');
+		function stop(){
+			clearInterval(timer);
+		}
+		container.onmouseover=stop;
+		container.onmouseout=play;
+		var
+		buttons=document.getElementById('buttons').getElementsByTagName('span');
+		var index=1;
+		function buttonsShow(){
+			for(var i=0;i<buttons.length;i++){
+				if(buttons[i].className=='on'){
+					buttons[i].className='';
+				}
+			}
+			buttons[index-1].className='on';
+		}
+		prev.onclick=function(){
+			index-=1;
+			if(inder<1){
+				index=5
+			}
+			buttonsShow();
+			animate(600);
+		}
+		next.onclick=function(){
+			index+=1;
+			if(index>5){
+				index=1;
+			}
+			buttonsShow();
+			animate(-600);
+		}
+		for(var i=0;i<buttons.length;i++){
+			(function(i){
+				buttons[i].onclick=function(){
+					var clickIndex=parseInt(this.getAttribute('index'));
+					var offset=600*(index-clickIndex);
+					animate(offset);
+					index=clickIndex;
+					buttonsShow();
+				}
+			})(i)
+			}
+		}
+		
+
+	
+</script></div>
+		
+			</ul>
+			<ul id="num">
+				<li class="aa">1</li>
+				<li class="bb">2</li>
+				<li class="bb">3</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var imgs=document.getElementById('imgs').getElementsByTagName('li');
+			var nums=document.getElementById("num").getElementsByTagName("li");
+			var lunbo=document.getElementById("lunbo");
+			var oimg=document.getElementById('imgs');
+			var iNow=0;
+			var dt=null;
+			oimg.style.width=imgs.length*imgs[0].offsetWidth+"px";
+			function tab(){
+				for(var i=0;i<nums.length;i++){
+					nums[i].index=i;
+					nums[i].onclick=function(){
+						clearInterval(dt);
+						iNow=this.index;
+						for(var i=0;i<nums.length;i++){
+							nums[i].className="bb";
+						}
+						this.className="aa";
+						oimg.style.left=-(imgs[0].offsetWidth*iNow)+"px";
+					}
+					nums[i].onmouseout=function(){
+						start();
+					}
+				}
+			}
+			function start(){
+				clearInterval(dt);
+				dt=setInterval(function(){
+					if(iNow>nums.length-2){
+						iNow=0;
+					}else{
+						iNow++;
+					}
+					for(var k=0;k<nums.length;k++){
+						if(iNow==nums[k].index){nums[k].clasName='aa';
+						}else{
+							nums[k].className='bb';}
+						}
+						oimg.style.left=-(imgs[0].offsetWidth*iNow)+"px";
+					tab();	
+					}
+					start();
+				</script>		 -->
+		<!-- </div> -->
+		
+
+
+		<a href="https://xue.uisdc.com/draw2/"><img class="p1"src="https://image.uisdc.com/wp-content/uploads/2018/12/uisdc-rbanner-181212.jpg"><span class="shouhui"><strong>2019零基础手绘课堂</strong></span></a>
+		<a href="https://xue.uisdc.com/c4d/"><img class="p2"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-rb-0213c4d.jpg"><span class="c40"><strong>零基础C40课程</strong></span></a>
+		<a href="https://uiiiuiii.com/knowledge/1212122079.html"><img class="p3"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-pr-rb0213.jpg"><span class="shipin"><strong>免费！自学视频剪辑</strong></span></a>
+		<a href="https://uiiiuiii.com/knowledge/1212122079.html"><img class="p4"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-pr-rb02132.jpg"><span class="bikan"><strong>必看的60个基础教程</strong></span></a>
+		<table border="1"class="tablea">
+			<tr>
+				<th><a href="https://www.uisdc.com/category/hot-download">热门下载</a></th>
+				<th><a href="https://www.uisdc.com/category/uiicon" target="_blank">界面设计</a></th>
+				<th><a href="https://www.uisdc.com/category/share" target="_blank">设计文章</a></th>
+			</tr>
+			<tr>
+				<th><a href="https://www.uisdc.com/zt" target="_blank">优设专题</a></th>
+				<th><a href="https://www.uisdc.com/category/work-blueprint" target="_blank">职场经验</a></th>	
+				<th><a href="https://www.uisdc.com/category/site-recommend" target="_blank">酷站推荐</a></th>				</tr>
+		</table>
+		<div class="box2">
+			<div class="chengkuai1"></div>
+			<a href="https://www.uisdc.com/zt"><span class="b1"><strong>热门专题</strong></span></a>
+			
+			<a href="https://www.uisdc.com/zt"><button class="b111" type="button">MORE</button></a>
+			<a href="https://www.uisdc.com/zt/free-photo"><img class="pp1"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-lbbanner-190106.jpg"><span class="b1111">高质量图库网站</span></a>
+			<a href="https://www.uisdc.com/zt/photoshop-skills"><img class="pp2"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-brbanner2-1913.jpg"><span class="b2">PS的技巧大全</span></a>
+		</div>
+		<div class="box3">
+			<span class="b3"><strong>设计灵感</strong></span>
+			<span class="b33">合计发布1620</span>
+			<a href="https://uiiiuiii.com/inspiration"><button class="b4">MORE</button></a>
+			<img class="b5"src="https://image.uisdc.com/wp-content/uploads/2018/11/uisdc-blbanner-181105.jpg">
+			<img class="b6"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-rbbanner-1901032.jpg">
+			<span class="b55">海报设计精选</span>
+			<span class="b66">360篇设计技巧</span>
+		</div>
+		<div class="box4">
+			<span class="b7"><strong>课程推荐</strong></span>
+			<span class="b8">每一课都是突破  1/3</span>
+			<span class="b9">· 超人气零基础手绘课程</span>
+			<span class="b10">·热门！零基础学C40课程</span>
+			<span class="b11">·名额有限！动效设计特训班</span>
+			<span class="b12">·名师！零基础UI设计课程</span>
+		</div>
+		<div class="box5">
+			<span class="c1">优设读报</span>
+			<span class="c2">1.s搜狗联合新华社推出全球首个站立式AI合成主播</span>
+			<span class="c3">2.抖音发布首款小程序游戏</span>
+			<span class="c4">3.Android Q将删除返回键，手势操作更全面</span>
+			<span class="c5">4.Mozilla Firefox将向用户提供画中画功能</span>
+		</div>
+		<div class="box6">
+			<img class="c6"src="https://image.uisdc.com/wp-content/uploads/2018/06/uisdc-qt-613.png">
+			<a href="https://uiiiuiii.com/photoshop"><img class="c7"src="https://image.uisdc.com/wp-content/uploads/2018/07/uiii-ps-icon.png"></a>
+			<span class="c8">PhotoShop</span>
+			<a href="https://uiiiuiii.com/illustrator"><img class="c9"src="https://image.uisdc.com/wp-content/uploads/2018/07/uiii-ai-icon.png"></a>
+			<span class="c10">IIIustrator</span>
+			<a href=""><img class="c11"src="https://image.uisdc.com/wp-content/uploads/2018/07/uiii-ae-icon.png"></a>
+			<span class="c12">After Effects</span>
+			<a href="https://uiiiuiii.com/cinema4d"><img class="c13"src="https://image.uisdc.com/wp-content/uploads/2018/07/uiii-c4d-icon.png"></a>
+			<span class="c14">Cinema 4D</span>	
+			<div class="c15">干货集合</div>
+			<div class="c16">网页设计</div>
+			<div class="c17">UI设计</div>
+			<div class="c18">经验分享</div>
+			<div class="c19">神器推荐</div>
+			<div class="c20">酷站推荐</div>
+			<div class="c21">交互设计</div>
+			<div class="c22">产品设计</div>
+			<div class="c23">中文字体</div>
+			<div class="c24">免费资源</div>
+			<div class="c25">APP设计</div>
+			<div class="c26">PS技巧</div>
+			<div class="c27">用户体验</div>
+			<div class="c28">平面设计</div>
+			<div class="c29">Logo设计</div>
+			<div class="c30">设计师职场</div>
+			<div class="c31">字体设计</div>
+			<div class="c32">Web前端</div>
+			<div class="c33">图库网站</div>
+			<div class="c34">自学自绘</div>
+
+			<img class="c35"src="https://image.uisdc.com/wp-content/uploads/2015/05/2017-dkt-510G.jpg">
+			<span class="c36">主编推荐</span>
+			<span class="c37">海报设计</span>
+			<span class="c38">字体设计</span>
+			<span class="c39">Banner设计</span>
+			<span class="c400">Logo设计</span>
+			<span class="c41">UI设计</span>
+			<img class="c42"src="https://image.uisdc.com/wp-content/uploads/2018/10/c4d-1810032.png">
+			<a href="http://xue.uisdc.com/draw2/"><img class="c43"src="https://image.uisdc.com/wp-content/uploads/2018/04/uisdc-dktbanner-0501.png"></a>
+			<span class="c44">优设零基础手绘特训班   推荐：超人气课程！从入门到专业</span>
+			<a href="https://uiiiuiii.com/"><img class="c45"src="https://image.uisdc.com/wp-content/uploads/2017/08/uiii2-862-site.jpg"></a>
+			<span class="c46">优优教程网 超赞：可能是国内最好的中文教程网</span>
+			<a href="https://www.aliyun.com/jianzhan/website?spm=5176.11751252.1165852.link1.43e145c9hkmov0&userCode=itzns7ko"><img class="c47"src="https://image.uisdc.com/wp-content/uploads/2018/10/aliyun-lbanner-181024.jpg"></a>
+			<span class="c48">阿里云建设神器 推荐：无需技术轻松做你想做的网站</span>
+			<a href="https://uiiiuiii.com/other/121264508.html"><img class="c49"src="https://image.uisdc.com/wp-content/uploads/2018/04/uisdc-lbanner-ljcok.jpg"></a>
+			<span class="c50">优设PS、AI、AE零基础训练营 推荐：30天从小白到软件高手</span>
+			<a href="https://www.aliyun.com/jianzhan/moban?userCode=itzns7ko"><img class="c51"src="https://image.uisdc.com/wp-content/uploads/2018/08/aliyun-tg-100831.jpg"></a>
+			<span class="c52">搜狗联合新华社推出全球首个站立式AI合成主播</span>
+			<span class="c53">抖音发布首款小程序游戏</span>
+			<span class="c54">Android Q 将删除返回键，手势操作更全面</span>
+			<span class="c55">Mozilla Firefox将向用户提供画中画功能</span>
+			<div class="c56">聊设计 聊社稷</div>
+			</div>
+
+
+		<div class="box7">
+			<span class="d1"><strong>最新文章</strong></span>
+			<div class="d2"></div>
+			<span class="d3"><strong>近期热门</strong></span>
+			<span class="d4"><strong>专题文章</strong></span>
+			<span class="d5">设计专访！与Adobe合作的设计师Maria Gronlund有哪些成长心</span>
+			<span class="d6">2019-2-19 推荐 3年2班程远</span>
+			<a href="https://www.uisdc.com/uisdc-interview-maria-gronlund"><img class="d7"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-banner-20190219-4.jpg"></a>
+			<span class="d8">@N可可洛N、@爆炒地瓜：她三十多岁才进入设计行业，她热情洋溢、勇于专研、想象力丰富</span>
+			<span class="d9">用多彩的作品征服一个个客户，她的标志设计在Behance...</span>
+			<span class="d10">实在！2019年2月设计圈超实用干货大合集</span>
+			<span class="d11">2019-02-19 推荐：陈子木</span>
+			<img class="d12"src="https://image.uisdc.com/wp-content/uploads/2019/02/new-for-designers-february-2019.jpg">
+			<span class="d13"><strong>细节猎人</strong></span>
+			<a href="https://www.uisdc.com/hunter/0221307826.html"><div class="d14">
+				<img class="d18"src="https://img02.sogoucdn.com/app/a/200678/14613244270182.jpg">
+				<span class="d19">用「微信」发红包时，你有注意过默认祝福文字的变化么？</span>
+			</div></a>
+			<a href="https://www.uisdc.com/hunter/0221307831.html"><div class="d15">
+				<img class="d20"src="https://img02.sogoucdn.com/app/a/200678/14613244270182.jpg">
+				<span class="d21">是的，没错！元宵节B站的小电视图标又变身了～</span>
+			</div></a>
+			<a href="https://www.uisdc.com/hunter/0221307701.html"><div class="d16">
+				<img class="d22"src="https://img02.sogoucdn.com/app/a/200678/14613244270182.jpg">
+				<span class="d23">「好好住」：用特殊的交互动画，凸显优质用户身份</span>
+			</div></a>
+			<a href="https://www.uisdc.com/hunter/0221307701.html"><div class="d17">
+				<img class="d24"src="https://img02.sogoucdn.com/app/a/200678/14613244270182.jpg">
+				<span class="d25">「QQ音乐」：及时出现的歌曲搜索框</span>
+			</div></a>
+			<a href="https://www.uisdc.com/hunters"><span class="d26">查看全部<<</span></a>
+
+			<span class="d27">敲黑板！图文混排要注意哪些？</span>
+			<img class="d28"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-banner-20190218-2.jpg">
+			<span class="d29">新年推荐！5个干货超多值得置顶关注的设计类工作号</span>
+			<img class="d30"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-banner-20190108-2.jpg">
+			<span class="d31">高手出品！300个漂亮的Photoshop 渐变源文件免费下载！</span>
+			<img class="d32"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-banner-20190217-2.jpg">
+			<span class="d33">高手在民间！《流浪地球》官方设计师和大神网友的巅峰对决！</span>
+			<img class="d34"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-banner-20190125-4.jpg">
+			<span class="d35">帮你一小时想到100个创意点子的白三角笔记方法</span>
+			<img class="d36"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-banner-20190127-2.jpg">
+			<span class="d37">送你一份设计师的开工素材大礼包！超多免费资源+神器！</span>
+			<img class="d38"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-banner-20190213-10.jpg">
+
+			<a href="https://www.uisdc.com/zt/uisdc-round-table"><div class="d39">
+	        	<img class="d40"src="https://image.uisdc.com/wp-content/uploads/2019/01/uisdc-banner-zt190121.jpg">
+	        	<span class="d41">263125看过</span>
+	        	<span class="d42">15篇文章</span>
+	        	<span class="d43">· 优设圆桌</span>
+	        	<span class="d44">专属设计师的围炉夜话</span>
+	        	<div class="d45">查看专题</div>
+	        </div></a>
+	        <a href="https://www.uisdc.com/zt/photoshop-skills"><div class="d46">
+	        	<img class="d40"src="https://image.uisdc.com/wp-content/uploads/2018/09/ps-uisdc-zt0917.jpg">
+	        	<span class="d41">43522看过</span>
+	        	<span class="d42">5篇文章</span>
+	        	<span class="d43">· PS的技巧大全</span>
+	        	<span class="d44">高手奥义操作方法总结</span>
+	        	<div class="d45">查看专题</div></div></a>
+
+
+		</div>
+		<div class="box8">
+			<input class="e1"type="button" value="搜索"> 
+	        <div class="e2"></div>
+	        <a href="https://www.uisdc.com/hunters"><div class="e3">
+	        	<span class="e6">细节猎人</span>
+	        </div></a>
+	        <div class="e4">
+	        	<span class="e7">职场规划</span>
+	        </div>
+	        <div class="e5">
+	        	<span class="e8">猜你喜欢</span>
+	        </div>
+	        <a href="https://www.uisdc.com/hunter/0221283862.html"><div class="e9">
+	        	<span class="e14">优设网是国内极具人气的设计师学习平台。2012年成立至今，一直专注于设计师的学习成长交流。</span>
+	        	<img class="e13"src="http://img01.sogoucdn.com/app/a/100520021/4e676736e5239c31031b1274167278e7">
+	        </div></a>
+	        <a href="https://www.uisdc.com/hunter/0221275287.html"><div class="e10">
+	        	<span class="e14">各大社群为设计师提供高水准的行业设计讲座和领先的设计资讯分享。为设计师发声、替好作品说话</span>
+	        	<img class="e13"src="http://img03.sogoucdn.com/app/a/100520021/0b0a8ca7ec8cedd42ca4e48db630d4ad">
+	        </div></a>
+	        <a href="https://www.uisdc.com/hunter/0221302579.html"><div class="e11">
+	        	<span class="e14">网址导航为优秀网页设计联盟旗下最实用、最专业、最全面、最好用的设计师导航</span>
+	        	<img class="e13"src="http://img03.sogoucdn.com/app/a/100520021/73cad0fed005e61d694715be6ba37090">
+	        </div></a>
+	        <a href="https://www.uisdc.com/hunter/0221287263.html"><div class="e12">
+	        	<span class="e14">中国创意设计展示媒体_设计作品_设计大赛_设计招聘_设计资讯</span>
+	        	<img class="e13"src="http://img01.sogoucdn.com/app/a/100520021/f4a0006e6fc621346db8cf8c9d12c5a8">
+	        </div></a>
+	        
+	        <a href="https://www.uisdc.com/zt/book-recommend"><div class="e15">
+	        	<img class="e18"src="http://www.rsdown.cn/d/file/p/2017-03-17/ae953ddac78a891909d4fdcbccadb80f.jpg">
+	        	<span class="e19">263125看过</span>
+	        	<span class="e20">15篇文章</span>
+	        	<span class="e21">· 好书推荐</span>
+	        	<span class="e22">那些口碑炸裂的设计书籍</span>
+	        	<div class="e23">查看专题</div>
+	        </div></a>
+	        
+	        <a href="https://www.uisdc.com/zt/book-recommend"><div class="e16">
+	        	<img class="e18"src="http://www.rsdown.cn/d/file/p/2017-03-17/b77776482ae3c86d501a2f53acfd8c08.jpg">
+	        	<span class="e19">41241人看过</span>
+	        	<span class="e20">5篇文章</span>
+	        	<span class="e21">AR设计</span>
+	        	<span class="e22">AR设计可能是距离设计师最近的</span>
+	        	<div class=e23"">查看专题</div>
+	        </div></a>
+
+	        <a href="https://www.uisdc.com/zt/book-recommend"><div class="e17">
+	        	<img class="e18"src="http://img01.yohoboys.com/spidercms/2017/10/27/01/016f3a9f12647909d175ac24ff2ae384cf.jpeg">
+	        	<span class="e19">502345人看过</span>
+	        	<span class="e20">32篇文章</span>
+	        	<span class="e21">微信小程序</span>
+	        	<span class="e22">今年最热的小程序设计和开发方法</span>
+	        	<div class="e23">查看专题</div>
+	        </div></a>
+	        <a href="https://www.aliyun.com/jianzhan/website?userCode=itzns7ko"><img class="e24"src="https://image.uisdc.com/wp-content/uploads/2018/12/aliyun-uisdc-banner1202.jpg"></a>
+	        <a href="https://xue.uisdc.com/draw2/"><img class="e25"src="https://image.uisdc.com/wp-content/uploads/2019/02/uisdc-dkt-draw0213.jpg"></a>
+	        <img class="e26"src="http://img02.sogoucdn.com/app/a/100520021/62c5078f6ee871e09a5cd6f2f95f5bf0">
+		</div>
+
+
+
+		<div class="box9">
+			<a href="https://xue.uisdc.com/"><div class="f1">
+				<img class="f5"src="https://image.uisdc.com/wp-content/uploads/2018/07/uisdc-btyszt.jpg">
+				<span class="f6"><strong>细节猎人</strong></span>
+				<span class="f7">设计总监喜欢看的频道！辅助产品细节之美。立即查看</span>
+			</div></a>
+			<a href="https://www.uisdc.com/hunters"><div class="f2">
+				<img class="f5"src="https://image.uisdc.com/wp-content/uploads/2018/05/usidc-btm-hunters.png">
+				<span class="f6"><strong>优设专题</strong></span>
+				<span class="f7">最具含金量的干货文章合辑，你想看的都在这里。点击学习</span>
+			</div></a>
+			<a href="https://www.uisdc.com/zt"><div class="f3">
+				<img class="f5"src="https://image.uisdc.com/wp-content/uploads/2018/07/uisdc-btyszt.jpg">
+				<span class="f6"><strong>设计培训</strong></span>
+				<span class="f7">优设超高人气零基础课程，UI设计、手绘、产品课程等。访问预约</span>
+			</div></a>
+			<a href="https://uiiiuiii.com/inspiration"><div class="f4">
+				<img class="f5"src="https://image.uisdc.com/wp-content/uploads/2018/05/uisdc-btzlg.png">
+				<span class="f6"><strong>找灵感</strong></span>
+				<span class="f7">强悍！还怕没灵感？这里藏了大家都在用的新鲜灵感库。戳我戳我</span>
+			</div></a>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
